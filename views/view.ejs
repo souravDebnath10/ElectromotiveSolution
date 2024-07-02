@@ -1,0 +1,88 @@
+<%- include("partials/header.ejs") %>
+<div class="mainDiv">
+    <div class="vim">
+        <image class="prodimg" src="<%= img %>" alt="Picture Unavailable" height="450px" width="450px"/>
+    </div>
+    <div class="rating">
+        <%if(locals.name){%>
+            <h2><%=name%></h2>
+        <%}else{%>
+            <h2>Name Unavailable</h2>
+        <%}%>
+    </div>
+    <hr>
+    <div class="rating">
+        <%if(locals.rating){%>
+            <h3><u>Rating</u>: <%=rating%> / 5</h3>
+        <%}else{%>
+            <h2>No rating available</h2>
+        <%}%>
+    </div>
+    <hr>
+    <div class="rating">
+        <%if(locals.price){%>
+            <h3><u>Price</u>: Rs.<%=price%>/-</h3>
+        <%}else{%>
+            <h2>No price available</h2>
+        <%}%>
+    </div>
+    <hr>
+    <div class="buy">
+        <form action="/buy" method="post" target="_blank">
+            <button class="buybtn" name="buybutton" value="<%=id%>">Buy Now</button>
+            <button class="buybtn1" name="cartbutton" value="<%=name%>" onclick=myFunction()>Add to cart</button>
+            <label for="qty">Quantity:</label>
+            <select name="qty" id="cars">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            
+            </select>
+        </form>
+    </div>
+    <hr>
+    <div class="features">
+        
+            
+        <%if(locals.description){%>
+             <p><b><u>Description</u>:</b> <%= description %></p>
+        <%}else{%>
+            <h3>No description available</h3>
+        <%}%>   
+    
+    </div>
+    <section id="featured">
+		<h1>Related Products</h1>
+	</section>
+    <div class="man-row">
+        <div class="man-box">
+            <img src="images/ledb.webp">
+                <h2>20W LED Bulb<br>Rs.249</h2>
+            <form action="/view" method="post"><button name="led" value="led bulb">View</button></form>
+        </div>
+        <div class="man-box">
+            <img src="images/diode.jpg">
+                <h2>Diode<br>Rs.39</h2>
+            <form action="/view" method="post"><button name="diode" value="diode">View</button></form>
+        </div>
+        <div class="man-box">
+            <img src="images/multimeter.png">
+                <h2>Multimeter<br>Rs.269</h2>
+            <form action="/view" method="post"><button name="multimeter" value="multimeter">View</button></form>
+        </div>
+        <div class="man-box" >
+            <img src="images/battery.jpg" id="lastImg">
+                <h2>12V Battery<br>Rs.49</h2>
+            <form action="/view" method="post"><button name="battery" value="battery">View</button></form>
+        </div>
+</div>
+</div>
+<script>
+    function myFunction(){
+        alert("Item is added to cart");
+    }
+</script>
+
+<%- include("partials/footer.ejs") %>

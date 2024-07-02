@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Electro-Motive Solutions</title>
+	<link rel="icon" type="image/x-icon" href="/trans.png">
+	<link rel="stylesheet" type="text/css" href="/styles/style.css">
+	
+</head>
+<body>
+<header id="home">
+	<nav>
+		<div class="logo"><img class="icon" src="/trans.png" alt="icon"/><p class="electro">Electro-Motive Solutions</p></div>
+		<div class="menu">
+			<form action="/home" method="post" class="cartForm"><button class="homeBtn">Home</button></form>
+			
+			<div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Categories ˅</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <form action="/category" method="post"><button name="ha" class="catBtn" value="Home">Home Appliances</button>
+                  <button name="ha" class="catBtn" value="Electrical">Electrical</button>
+                  
+                  <button name="ha" class="catBtn" value="Electronics">Electronics</button></form>
+                </div>
+              </div>
+              <form action="/cart" method="post" class="cartForm"><button class="cartBtn">Cart &#128722;</button></form>
+              <%if(locals.attribute === ""){%>
+                <form action="/login" method="post" class="cartForm" target="_blank"><button class="homeBtn">Sign In</button></form>
+              <%}else{%>
+                <form action="/login" method="post" class="cartForm"><button class="homeBtn" hidden>Sign In</button></form>
+              <%}%>
+              
+              
+              <form action="/search" method="post">
+                <div class="wrap">
+                <div class="search">
+                   <input type="text" class="searchTerm" placeholder="Search..." name="searchitem">
+                   <button type="submit" class="searchButton">
+                    <img class="searchIcon" src="/images/searchIcon.webp"/>
+                  </button>
+                </div>
+              </div>
+              </form>
+              
+		</div>
+	</nav>
+</header>

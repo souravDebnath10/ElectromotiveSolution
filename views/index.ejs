@@ -1,0 +1,76 @@
+<%- include("partials/header.ejs") %>
+<div class="mainDiv">
+	<div class="container">
+		<div class="left">
+			<img src="/images/main.jpg">
+		</div>
+		<div class="right">
+			<h1>Summer Offer!</h1>
+			<p>
+				Best offers on Home Appliances.
+			</p>
+			<p>
+				20% Discount!!!
+			</p>
+			<form action="/category" method="post"><button class="viewBtn" class="shop" name="ha" value="Home">Shop Now</button></form><br>
+		</div>
+	</div>
+	<section id="featured">
+		<h1>Featured Products</h1>
+	</section>
+	<section id="man">
+		<div class="man-row">
+			<div class="man-box">
+				<img src="images/arduino.png">
+					<h2>Arduino Uno<br>Rs.399</h2>
+				<form action="/view" method="post"><button class="viewBtn" name="prod" value="Arduino Uno">View</button></form>
+			</div>
+			<div class="man-box">
+				<img src="images/trans.webp">
+					<h2>220v/6v Transformer<br>Rs.75</h2>
+				<form action="/view" method="post"><button class="viewBtn" name="prod" value="220v/6v Transformer">View</button></form>
+			</div>
+			<div class="man-box">
+				<img src="images/dcm.jpg">
+					<h2>2HP DC Motor<br>Rs.9999</h2>
+				<form action="/view" method="post"><button class="viewBtn" name="prod" value="2HP DC Motor">View</button></form>
+			</div>
+			<div class="man-box">
+				<img src="images/im.webp">
+					<h2>1/2HP Induction Motor(1ph)<br>Rs.5549</h2>
+				<form action="/view" method="post"><button class="viewBtn" name="prod" value="1/2HP Induction Motor(1ph)">View</button></form>
+			</div>
+		</div>
+	</section>
+	<section id="women">
+		<div class="man-row">
+			<div class="man-box">
+				<img src="images/ledb.webp">
+				<span>
+					<h2>20W LED Bulb<br>Rs.249</h2>
+				<form action="/view" method="post"><button class="viewBtn" name="prod" value="20W LED Bulb">View</button></form>
+				</span>
+			</div>
+			<div class="man-box">
+				<img src="images/diode.jpg">
+				<span>
+					<h2>Diode<br>Rs.39</h2>
+				<form action="/view" method="post"><button class="viewBtn" name="prod" value="Diode">View</button></form>
+				</span>
+					
+			</div>
+			<div class="man-box">
+				<img src="images/multimeter.png">
+					<h2>Multimeter<br>Rs.269</h2>
+				<form action="/view" method="post"><button class="viewBtn" name="prod" value="Multimeter">View</button></form>
+			</div>
+			<div class="man-box">
+				<img src="images/battery.jpg">
+					<h2>12V Battery<br>Rs.49</h2>
+				<form action="/view" method="post"><button class="viewBtn" name="prod" value="12V Battery">View</button></form>
+			</div>
+		</div>
+	</section>
+</div>
+
+<%- include("partials/footer.ejs") %>

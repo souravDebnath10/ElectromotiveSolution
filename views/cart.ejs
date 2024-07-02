@@ -1,0 +1,34 @@
+<%- include("partials/header.ejs") %>
+
+    <%if(locals.items){ %>
+        <div class="mainDiv">
+            <div class="cartdiv">
+                <%for(let item of items){%>
+                    <div class="cart-box">
+                        <form action="/view" method="post">
+                        <img id="cartimg" src=<%=item.image%>>
+                            <h2><%=item.name%><br><%=item.price%></h2>
+                        <button class="viewBtn" id="view" name="prod" value="<%=item.name%>">View</button></form>
+                        <form action="/delete" method="post"><button class="viewBtn" id="delete" name="delbtn" value="<%=item.id%>">Delete</button></form>
+                    </div>
+                <%}%>
+            </div>
+                <div class="checkout">
+                    <%if(locals.total){%>
+                        <h2>Total Amount : Rs.<%=total.sum%></h2>
+                    <%}else{%>
+                        <p>No price available</p>
+                    <%}%>
+                </div>
+                
+                <div class="checkout">
+                <form action="/cartbuy" action="post" target="_blank"><button class="viewBtn" >Checkout</button></form>
+            </div>
+            
+            
+        </div>
+        
+    <%}else{%>
+        <h1>No item in the cart</h1>
+    <%}%>
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+    <%if(locals.items){%>
+        <div class="mainDiv">
+            
+                <%for(let item of items){%>
+                        <div class="order-box">
+                            <form action="/view" method="post" class="orderform">
+                                <div class="orderi">
+                                    <img id="orderimg" src=<%=item.image%>>
+                                </div>
+                                <div class="desc">
+                                    <h2><%=item.name%></h2><h2 class="h2"><br>Rs.<%=item.price%></h2>
+                                </div>
+                            </form>
+                                <div class="ostatus">
+                                    <h3>Order Status: Not yet dispatched</h3>
+                                <form action="/cancel" method="post">
+                                    <button class="return" name="cancel" value="<%=item.id%>">
+                                        Cancel Order
+                                    </button>
+                                </form>
+                                
+                            </div>
+                            
+                        </div>
+                <%}%>
+    
+        </div>
+    <%}else{%>
+        <h1>No item in the cart</h1>
+    <%}%>
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+    <%if(locals.items){%>
+        <div class="mainDiv">
+            <div class="cartdiv">
+                <%for(let item of items){%>
+                    
+                        <div class="cart-box">
+                            <form action="/view" method="post">
+                            <img id="cartimg" src=<%=item.image%>>
+                                <p><%=item.name%><br>Rs.<%=item.price%></p>
+                            <button class="viewBtn" name="prod" value="<%=item.name%>">View</button></form>
+                        </div>
+                    
+                <%}%>
+            </div>
+        </div>
+    <%}else{%>
+        <h1>No item in the cart</h1>
+    <%}%>
+    <script>
+        
+    </script>
+<%- include("partials/footer.ejs") %>
