@@ -17,7 +17,10 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 
 const db = new pg.Client({
-    connectionString: process.env.POSTGRES_URL,
+    connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false // Adjust as needed
+  }
 });
 
 let loginStatus = "";
