@@ -205,6 +205,7 @@ nav{
 	transform-style: preserve-3d;
 	transform-origin: center;
 	perspective: 2000px;
+	flex-wrap: wrap;
 }
 
 .left{
@@ -235,20 +236,7 @@ nav{
 	width: 120px;
 }
 
-.right{
-	flex-basis: 50%;
-	max-width: 400px;
-	margin-left: 100px;
-	margin-top: 130px;
-}
 
-.right h1{
-	font-size: 50px;
-}
-.right p{
-	font-size: 25px;
-	margin:20px 0px;
-}
 button{
 	background: black;
 	color: white;
@@ -312,6 +300,7 @@ button{
 .man-row{
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
 }
 
 .cartdiv{
@@ -380,6 +369,86 @@ button{
 	text-align: center;
 }
 
+
+@media (max-width: 400px) {
+	.man-box {
+		flex-basis: 90%;
+	}
+	.left{
+		margin-bottom: 50px;
+	}
+	.left img{
+		width: 250px;
+	}
+  }
+
+@media (min-width:401px) and (max-width: 599px) {
+	.man-box {
+		flex-basis: 45%;
+	}
+	.right{
+		flex-basis: 50%;
+		max-width: 400px;
+		margin-left: 10px;
+		margin-top: 130px;
+	}
+	
+	
+	.right h1{
+		
+		font-size: 25px;
+	}
+	.right p{
+		font-size: 15px;
+		margin:20px 0px;
+	}
+  }
+  
+  /* Media query for screens from 600px to 899px */
+  @media (min-width: 600px) and (max-width: 899px) {
+	.man-box {
+		flex-basis: 33%;
+	}
+	.right{
+		flex-basis: 50%;
+		max-width: 400px;
+		margin-left: 10px;
+		margin-top: 130px;
+	}
+	
+	
+	.right h1{
+		
+		font-size: 25px;
+	}
+	.right p{
+		font-size: 15px;
+		margin:20px 0px;
+	}
+  }
+  
+  /* Media query for screens 900px and larger */
+  @media (min-width: 900px) {
+	.cartdiv {
+		.man-box {
+			flex-basis: 20%;
+		}
+	}
+	.right{
+		flex-basis: 50%;
+		max-width: 400px;
+		margin-left: 100px;
+		margin-top: 130px;
+	}
+	
+	.right h1{
+		font-size: 50px;
+	}
+	.right p{
+		font-size: 25px;
+		margin:20px 0px;
+	}
+  }
 
 .man-box img{
 	width: 100%;
