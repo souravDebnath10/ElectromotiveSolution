@@ -1,6 +1,6 @@
 <%- include("partials/header.ejs") %>
     <%if(locals.items){%>
-        <div class="mainDiv">
+        
             <div class="cartdiv">
                 <%for(let item of items){%>
                     
@@ -13,7 +13,7 @@
                     
                 <%}%>
             </div>
-        </div>
+        
     <%}else{%>
         <h1>No item in the cart</h1>
     <%}%>

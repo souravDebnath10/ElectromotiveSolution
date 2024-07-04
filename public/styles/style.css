@@ -19,11 +19,31 @@ nav{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	position: fixed;
 	top:0;
 	z-index: 1;
 	background: rgb(108, 108, 108);
+	padding-bottom: 80px;
+	flex-wrap: wrap;
 }
+
+@media (max-width:768px){
+	nav{
+		height: 270px;
+	}
+}
+
+@media (max-width:500px){
+	nav{
+		height: 370px;
+		flex-basis: content;
+	}
+}
+
+.menu{
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .homeBtn{
   margin-top: 10px;
   font-size: 20px;
@@ -32,11 +52,11 @@ nav{
   height: 40px;
 }
 .search {
-  width: 100%;
-  position: relative;
+  
+  
   display: flex;
   margin-left: 30px;
-  margin-top: 25px;
+  margin-top: 15px;
   height: 20%;
 }
 
@@ -294,39 +314,61 @@ button{
 	justify-content: space-around;
 }
 
-@media (max-width: 600px){
-	.cartdiv{
-		display: grid;
-		grid-template-columns: repeat(2, 1fr); /* 5 columns */
-		gap: 10px; /* space between items */
-	}
+.cartdiv{
+	display: grid;
+	background-color: #f5f5f5;
+	margin: 15px 15px 15px 15px;
+	border-radius: 1%;
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+	gap: 10px; /* Adjust spacing between items */
+	 /* Optional: Center align content */
 }
 
-@media (min-width:900px){
-	.cartdiv{
-		display: grid;
-		grid-template-columns: repeat(5, 1fr); /* 5 columns */
-		gap: 10px; /* space between items */
+@media (max-width: 400px) {
+	.cartdiv {
+		margin-top: 10px;
+		grid-template-columns: repeat(1, 1fr); /* 1 item per line */
 	}
-}
+  }
 
+@media (min-width:401px) and (max-width: 599px) {
+	.cartdiv {
+		margin-top: 10px;
+		grid-template-columns: repeat(2, 1fr); /* 1 item per line */
+	}
+  }
+  
+  /* Media query for screens from 600px to 899px */
+  @media (min-width: 600px) and (max-width: 899px) {
+	.cartdiv {
+		margin-top: 10px;
+		grid-template-columns: repeat(3, 1fr);
+	}
+  }
+  
+  /* Media query for screens 900px and larger */
+  @media (min-width: 900px) {
+	.cartdiv {
+		grid-template-columns: repeat(5, 1fr);
+	}
+  }
 
 .cart-box{
 	box-shadow: 2px 3px 5px grey;
+	box-sizing: border-box;
 	padding: 10px;
 	text-align: center;
 }
 .cart-box img{
 	width: 100%;
 }
-.cart-box h2{
+.cart-box p{
 	margin:20px 0px;
-}
-.cart-box h3{
-	background: black;
-	color: white;
+	
+	color: rgb(0, 0, 0);
 	padding: 10px;
 }
+
 .cart-box:hover{
 	transform: translateY(-20px);
 	transition: 0.4s ease;

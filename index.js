@@ -1,11 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
-import path from 'path';
+import pkg from "pg";
 import Stripe from "stripe";
 import dotenv from 'dotenv';
 
 dotenv.config();
+
+const {Pool} = pkg;
 
 const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
 
@@ -16,11 +18,17 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
 
 
-const db = new pg.Client({
+const db = new Pool({
+    /*user: "postgres",
+    host: "localhost",
+    database: "emSolution",
+    password: "Souravx2003",
+    port: 5432,*/
     connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false // Adjust as needed
-  }
+    ssl: {
+        rejectUnauthorized: false,
+    },
+  
 });
 
 let loginStatus = "";
