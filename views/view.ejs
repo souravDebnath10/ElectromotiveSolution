@@ -30,7 +30,7 @@
     <div class="buy">
         <form action="/buy" method="post" target="_blank">
             <button class="buybtn" name="buybutton" value="<%=id%>">Buy Now</button>
-            <button class="buybtn1" name="cartbutton" value="<%=name%>" onclick=myFunction()>Add to cart</button>
+            <button type="submit" onclick=myFunction() class="buybtn1" name="cartbutton" value="<%=name%>" >Add to cart</button>
             <label for="qty">Quantity:</label>
             <select name="qty" id="cars">
                 <option value="1">1</option>
@@ -81,7 +81,7 @@
 </div>
 <script>
     function myFunction(){
-        alert("Item is added to cart");
+        alert("Item is added to cart")
     }
 </script>
 
