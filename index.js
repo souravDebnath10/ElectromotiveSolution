@@ -4,6 +4,7 @@ import pg from "pg";
 import pkg from "pg";
 import Stripe from "stripe";
 import dotenv from 'dotenv';
+import session from 'express-session';
 
 dotenv.config();
 
@@ -13,6 +14,13 @@ const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(session({
+    secret: process.env.SECRET_KEY, // Replace with your own secret
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Set to true if using HTTPS
+  }));
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
@@ -35,6 +43,18 @@ let loginStatus = "";
 let currUserId = "";
 
 db.connect();
+
+// Set up session middleware
+
+app.use((req, res, next) => {
+    if (!req.session.hasVisited) {
+      // Clear or initialize your variable here
+      console.log(currUserId);
+      currUserId=""; // Replace 'variable' with your actual variable name
+      req.session.hasVisited = true;
+    }
+    next();
+  });
 
 app.get("/",async(req,res) => {
     await db.query("UPDATE orders SET complete=$1 WHERE complete=$2;",[1,0]);
